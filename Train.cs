@@ -72,13 +72,24 @@ namespace WindowsFormsApplication9
             Brush brushB = new SolidBrush(Color.Blue);
             Brush brushRB = new SolidBrush(Color.Gray);
 
+            //g.DrawEllipse(penR, startPosX + 10, startPosY + 30, 20, 20);
+            //g.DrawEllipse(penR, startPosX + 25, startPosY + 30, 20, 20);
+            ////g.DrawEllipse(penR, startPosX + 60, startPosY + 30, 20, 20);
+            ////g.DrawEllipse(penR, startPosX + 75, startPosY + 30, 20, 20);
+
+
+
             g.FillEllipse(brushRB, startPosX + 10, startPosY + 30, 20, 20);
+            //g.FillEllipse(brushRB, startPosX + 25, startPosY + 30, 20, 20);
+            //g.FillEllipse(brushRB, startPosX + 60, startPosY + 30, 20, 20);
             g.FillEllipse(brushRB, startPosX + 75, startPosY + 30, 20, 20);
 
 
             Brush LokoBrush = new SolidBrush(ColorBody);
             g.FillRectangle(LokoBrush, startPosX, startPosY, 100, 30);
 
+
+            //g.DrawRectangle(penB, startPosX + 100, startPosY + 20, 5, 5);
             g.DrawRectangle(penB, startPosX + 85, startPosY + 5, 20, 20);
             g.DrawRectangle(penB, startPosX + 65, startPosY + 5, 10, 20);
             g.DrawLine(penB, startPosX + 100, startPosY , startPosX+105, startPosY + 5);
