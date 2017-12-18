@@ -45,6 +45,7 @@
             this.загрузитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxParking)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTakeCar)).BeginInit();
@@ -55,7 +56,7 @@
             // 
             this.pictureBoxParking.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.pictureBoxParking.Location = new System.Drawing.Point(16, 28);
-            this.pictureBoxParking.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBoxParking.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBoxParking.Name = "pictureBoxParking";
             this.pictureBoxParking.Size = new System.Drawing.Size(608, 552);
             this.pictureBoxParking.TabIndex = 0;
@@ -68,9 +69,9 @@
             this.groupBox1.Controls.Add(this.button3);
             this.groupBox1.Controls.Add(this.pictureBoxTakeCar);
             this.groupBox1.Location = new System.Drawing.Point(632, 308);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(295, 272);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
@@ -89,7 +90,7 @@
             // maskedTextBox1
             // 
             this.maskedTextBox1.Location = new System.Drawing.Point(181, 38);
-            this.maskedTextBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.maskedTextBox1.Margin = new System.Windows.Forms.Padding(4);
             this.maskedTextBox1.Mask = "0";
             this.maskedTextBox1.Name = "maskedTextBox1";
             this.maskedTextBox1.Size = new System.Drawing.Size(55, 22);
@@ -98,7 +99,7 @@
             // button3
             // 
             this.button3.Location = new System.Drawing.Point(100, 70);
-            this.button3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button3.Margin = new System.Windows.Forms.Padding(4);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(100, 28);
             this.button3.TabIndex = 1;
@@ -109,7 +110,7 @@
             // pictureBoxTakeCar
             // 
             this.pictureBoxTakeCar.Location = new System.Drawing.Point(8, 106);
-            this.pictureBoxTakeCar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBoxTakeCar.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBoxTakeCar.Name = "pictureBoxTakeCar";
             this.pictureBoxTakeCar.Size = new System.Drawing.Size(268, 148);
             this.pictureBoxTakeCar.TabIndex = 0;
@@ -130,7 +131,7 @@
             this.listBoxLevels.FormattingEnabled = true;
             this.listBoxLevels.ItemHeight = 16;
             this.listBoxLevels.Location = new System.Drawing.Point(669, 46);
-            this.listBoxLevels.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listBoxLevels.Margin = new System.Windows.Forms.Padding(4);
             this.listBoxLevels.Name = "listBoxLevels";
             this.listBoxLevels.Size = new System.Drawing.Size(221, 116);
             this.listBoxLevels.TabIndex = 5;
@@ -139,7 +140,7 @@
             // buttonDown
             // 
             this.buttonDown.Location = new System.Drawing.Point(669, 171);
-            this.buttonDown.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonDown.Margin = new System.Windows.Forms.Padding(4);
             this.buttonDown.Name = "buttonDown";
             this.buttonDown.Size = new System.Drawing.Size(100, 52);
             this.buttonDown.TabIndex = 6;
@@ -150,7 +151,7 @@
             // buttonUp
             // 
             this.buttonUp.Location = new System.Drawing.Point(792, 170);
-            this.buttonUp.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonUp.Margin = new System.Windows.Forms.Padding(4);
             this.buttonUp.Name = "buttonUp";
             this.buttonUp.Size = new System.Drawing.Size(100, 53);
             this.buttonUp.TabIndex = 7;
@@ -161,7 +162,7 @@
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(669, 230);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(223, 70);
             this.button1.TabIndex = 8;
@@ -192,14 +193,14 @@
             // сохранитьToolStripMenuItem
             // 
             this.сохранитьToolStripMenuItem.Name = "сохранитьToolStripMenuItem";
-            this.сохранитьToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.сохранитьToolStripMenuItem.Size = new System.Drawing.Size(158, 26);
             this.сохранитьToolStripMenuItem.Text = "Сохранить";
             this.сохранитьToolStripMenuItem.Click += new System.EventHandler(this.сохранитьToolStripMenuItem_Click);
             // 
             // загрузитьToolStripMenuItem
             // 
             this.загрузитьToolStripMenuItem.Name = "загрузитьToolStripMenuItem";
-            this.загрузитьToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.загрузитьToolStripMenuItem.Size = new System.Drawing.Size(158, 26);
             this.загрузитьToolStripMenuItem.Text = "Загрузить";
             this.загрузитьToolStripMenuItem.Click += new System.EventHandler(this.загрузитьToolStripMenuItem_Click);
             // 
@@ -208,11 +209,22 @@
             this.openFileDialog1.FileName = "openFileDialog1";
             this.openFileDialog1.Filter = "txt file | *.txt";
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(774, 23);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(118, 23);
+            this.button2.TabIndex = 10;
+            this.button2.Text = "Сортировать";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
+            // 
             // FormDepocs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(931, 612);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.buttonUp);
             this.Controls.Add(this.buttonDown);
@@ -222,7 +234,7 @@
             this.Controls.Add(this.pictureBoxParking);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormDepocs";
             this.Text = "FormDepocs";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxParking)).EndInit();
@@ -255,5 +267,6 @@
         private System.Windows.Forms.ToolStripMenuItem загрузитьToolStripMenuItem;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Button button2;
     }
 }

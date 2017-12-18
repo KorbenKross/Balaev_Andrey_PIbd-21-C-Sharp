@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Lab2
 {
-    public class CartLocomotive : Locomotive
+    public class CartLocomotive : Locomotive, IComparable<CartLocomotive>, IEquatable<CartLocomotive>
     {
         private bool anthen;
         private bool roof;
@@ -84,6 +84,78 @@ namespace Lab2
         public override string getInfo()
         {
             return MaxSpeed + ";" + MaxCountPassengers + ";" + Weight + ";" + ColorBody.Name + ";" + anthen + ";" + roof + ";" + lightEngine + ";" + dopColor.Name;
+        }
+
+        public int CompareTo(CartLocomotive other)
+        {
+            var res = (this is Vehicle).CompareTo(other is Vehicle);
+            if (res != 0)
+            {
+                return res;
+            }
+            if (anthen != other.anthen)
+            {
+                return anthen.CompareTo(other.anthen);
+            }
+            if (lightEngine != other.lightEngine)
+            {
+                return lightEngine.CompareTo(other.lightEngine);
+            }
+            if (roof != other.roof)
+            {
+                return roof.CompareTo(other.roof);
+            }
+            if (dopColor != other.dopColor)
+            {
+                return dopColor.Name.CompareTo(other.dopColor);
+            }
+            return 0;
+        }
+        public bool Equals(CartLocomotive other)
+        {
+            var res = (this is Vehicle).Equals(other is Vehicle);
+            if (!res)
+            {
+                return res;
+            }
+            if (anthen != other.anthen)
+            {
+                return false;
+            }
+            if (lightEngine != other.lightEngine)
+            {
+                return false;
+            }
+            if (roof != other.roof)
+            {
+                return false;
+            }
+            if (dopColor != other.dopColor)
+            {
+                return false;
+            }
+
+            return true;
+        }
+        public override bool Equals(object obj)
+        {
+            if (obj == null)
+            {
+                return false;
+            }
+            CartLocomotive carObj = obj as CartLocomotive;
+            if (carObj == null)
+            {
+                return false;
+            }
+            else
+            {
+                return Equals(carObj);
+            }
+        }
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
         }
     }
 }

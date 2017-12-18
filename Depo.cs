@@ -12,7 +12,6 @@ namespace Lab2
     {
         List<ClassArray<ITransport>> parkingStages;
 
-
         int countPlaces = 5;
 
         int placeSizeWidth = 300;
@@ -33,9 +32,9 @@ namespace Lab2
         {
             parkingStages = new List<ClassArray<ITransport>>();
             
-            for(int i = 4; i < countStages+2; i++)
+            for(int i = 0; i < countStages; i++)
             {
-                ClassArray<ITransport> classarr = new ClassArray<ITransport>(i, null);
+                ClassArray<ITransport> classarr = new ClassArray<ITransport>(4, null);
                 parkingStages.Add(classarr);
             } 
             
@@ -73,16 +72,17 @@ namespace Lab2
         public void Draw(Graphics g, int width, int height)
         {
             DrawMarking(g);
-            for (int i = 0; i < countPlaces; i++)
+            int i = 0;
+            foreach (var locomotive in parkingStages[currentLevel])
             {
-                var locomotive = parkingStages[currentLevel][i];
-                if (locomotive != null)
-                {
-                    locomotive.setPosition(5 + i / 5 * placeSizeWidth + 5, i % 5 * placeSizeHeight + 45);
-                    locomotive.drawLocomotive(g);
-                }
-
-            }
+                locomotive.setPosition(5 + i / 5 * placeSizeWidth + 5, i % 5 * placeSizeHeight + 45);
+                locomotive.drawLocomotive(g);
+                i++;
+            }           
+        }
+        public void Sort()
+        {
+            parkingStages.Sort(); 
         }
 
         public void DrawMarking(Graphics g)
