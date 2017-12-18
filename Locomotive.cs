@@ -83,6 +83,22 @@ namespace Lab2
             startPosY = rand.Next(100, 200);
         }
 
+        public Locomotive(string info) 
+        {
+            string[] strs = info.Split(';');
+            if(strs.Length == 4)
+            {
+                MaxSpeed = Convert.ToInt32(strs[0]);
+                MaxCountPassengers = Convert.ToInt32(strs[1]);
+                Weight = Convert.ToInt32(strs[2]);
+                ColorBody = Color.FromName(strs[3]);
+            }
+            this.countPassengers = 0;
+            Random rand = new Random();
+            startPosX = rand.Next(400, 500);
+            startPosY = rand.Next(100, 200);
+        }
+
 
         public override void drawLocomotive(Graphics g)
         {
@@ -123,6 +139,9 @@ namespace Lab2
             g.DrawLine(penB, startPosX, startPosY + 25, startPosX + 100, startPosY + 25);
         }
 
+        public override string getInfo() {
+            return MaxSpeed + ";" + MaxCountPassengers + ";" + Weight + ";" + ColorBody.Name;
+        }
 
     }
 }
