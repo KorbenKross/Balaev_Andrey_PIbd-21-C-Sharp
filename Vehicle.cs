@@ -50,6 +50,10 @@ namespace Lab2
             startPosY = y;
         }
 
+        public virtual void setMainColor(Color color)
+        {
+            ColorBody = color;
+        }
         
     }
 }

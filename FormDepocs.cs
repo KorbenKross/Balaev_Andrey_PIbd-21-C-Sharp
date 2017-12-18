@@ -114,7 +114,32 @@ namespace Lab2
             listBoxLevels.SelectedIndex = depo.getCurrentLevel;
             Draw();
 
-        }           
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            form = new Form1();
+            form.AddEvent(AddLoco);
+            form.Show();
+
+        }
+
+        private void AddLoco(ITransport locomotive)
+        {
+            if (locomotive != null)
+            {
+                int place = depo.PutLocoInDepo(locomotive);
+                if (place > -1)
+                {
+                    Draw();
+                    MessageBox.Show("Ваше место: " + place);
+                }
+                else
+                {
+                    MessageBox.Show("Машину не удалось поставить");
+                }
+            }
+        }              
     }
 }
 

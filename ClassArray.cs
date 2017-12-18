@@ -18,6 +18,7 @@ namespace Lab2
             defaultValue = defVal;
             places = new Dictionary<int, T>();
             maxCount = sizes;
+           
         }
 
 
@@ -38,6 +39,9 @@ namespace Lab2
             p.places.Add(p.places.Count, locomotive);
             return p.places.Count - 1;
 
+
+
+
         }
 
         public static T operator -(ClassArray<T> p, int index)
@@ -50,13 +54,14 @@ namespace Lab2
             }
             return p.defaultValue;
 
+
         }
 
         private bool CheckFreePlace(int index)
         {
 
             return !places.ContainsKey(index);
-         
+  
         }
 
         public T this[int ind]

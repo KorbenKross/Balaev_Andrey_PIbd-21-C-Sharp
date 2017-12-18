@@ -99,8 +99,6 @@ namespace Lab2
                 }
                 g.DrawLine(pen, i * placeSizeWidth, 0, i * placeSizeWidth, 400);
             }
-
-
         }
     }
 }

@@ -19,6 +19,7 @@ namespace Lab2
 
         int getPassenger();
 
+        void setMainColor(Color color);
         
     }
 }
