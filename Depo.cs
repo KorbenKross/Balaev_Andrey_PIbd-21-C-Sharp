@@ -33,7 +33,7 @@ namespace Lab2
         {
             parkingStages = new List<ClassArray<ITransport>>();
             
-            for(int i = 2; i < countStages+2; i++)
+            for(int i = 4; i < countStages+2; i++)
             {
                 ClassArray<ITransport> classarr = new ClassArray<ITransport>(i, null);
                 parkingStages.Add(classarr);

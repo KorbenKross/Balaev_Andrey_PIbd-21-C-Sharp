@@ -1,4 +1,6 @@
-﻿using System;
+﻿
+using NLog;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,9 +16,10 @@ namespace Lab2
     {
         Depo depo;
         Form1 form;
+        private Logger log = LogManager.GetCurrentClassLogger();
         public FormDepocs()
         {
-            InitializeComponent();
+            InitializeComponent();           
             depo = new Depo(5);
             for (int i = 1; i < 6; i++)
             {
@@ -72,28 +75,35 @@ namespace Lab2
 
         private void button3_Click(object sender, EventArgs e)
         {
-            {
-                if (listBoxLevels.SelectedIndex > -1)
+            if (listBoxLevels.SelectedIndex > -1)
                 {//Прежде чем забрать машину, надо выбрать с какого уровня будем забирать
                     string level = listBoxLevels.Items[listBoxLevels.SelectedIndex].ToString();
                     if (maskedTextBox1.Text != "")
                     {
-                        var locomotive = depo.GetLocoInDepo(Convert.ToInt32(maskedTextBox1.Text));
+                        try
+                        {
+                            ITransport locomotive = depo.GetLocoInDepo(Convert.ToInt32(maskedTextBox1.Text));
 
-                        Bitmap bmp = new Bitmap(pictureBoxTakeCar.Width, pictureBoxTakeCar.Height);
-                        Graphics gr = Graphics.FromImage(bmp);
-                        locomotive.setPosition(20, 50);
-                        locomotive.drawLocomotive(gr);
-                        pictureBoxTakeCar.Image = bmp;
-                        Draw();
-                    }
-                    else
-                    {//иначесообщаемобэтом
-                        MessageBox.Show("Извинте, на этом месте нет машины");
-                    }
+                            Bitmap bmp = new Bitmap(pictureBoxTakeCar.Width, pictureBoxTakeCar.Height);
+                            Graphics gr = Graphics.FromImage(bmp);
+                            locomotive.setPosition(20, 50);
+                            locomotive.drawLocomotive(gr);
+                            pictureBoxTakeCar.Image = bmp;
+                            Draw();
+                        }
+                        catch (ParkingIndexOutOfRangeException ex)
+                        {
+                            MessageBox.Show(ex.Message, "Неверный номер",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message, "Общая ошибка",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
 
-                }
-            }
+                    }
+            }            
         }
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -102,24 +112,30 @@ namespace Lab2
 
         private void buttonDown_Click(object sender, EventArgs e)
         {
+
             depo.LevelDown();
             listBoxLevels.SelectedIndex = depo.getCurrentLevel;
+            log.Info("Переход на уровень ниже Текущий уровень: " + depo.getCurrentLevel);
             Draw();
 
         }
 
         private void buttonUp_Click(object sender, EventArgs e)
         {
+
             depo.LevelUp();
             listBoxLevels.SelectedIndex = depo.getCurrentLevel;
+            log.Info("Переход на уровень выше Текущий уровень: " + depo.getCurrentLevel);
             Draw();
 
         }
 
         private void button1_Click_1(object sender, EventArgs e)
         {
+            log.Info("Вызов  ");
             form = new Form1();
             form.AddEvent(AddLoco);
+            log.Info("Вызов локомотива ");
             form.Show();
 
         }
@@ -128,16 +144,23 @@ namespace Lab2
         {
             if (locomotive != null)
             {
-                int place = depo.PutLocoInDepo(locomotive);
-                if (place > -1)
+                try
                 {
+                    int place = depo.PutLocoInDepo(locomotive);
                     Draw();
                     MessageBox.Show("Ваше место: " + place);
                 }
-                else
+                catch (ParkingOverflowException ex)
                 {
-                    MessageBox.Show("Машину не удалось поставить");
+                    MessageBox.Show(ex.Message, "Ошибка переполнения",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+                catch (Exception ex)
+                {                
+                    MessageBox.Show(ex.Message, "Общая ошибка",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                
             }
         }
 
