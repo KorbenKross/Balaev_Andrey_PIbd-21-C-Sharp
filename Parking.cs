@@ -5,47 +5,102 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WindowsFormsApplication9
+namespace Lab2
 {
     class Depo
     {
-        ClassArray<ITtransport> depo;
-        int countPlaces = 10;
-        int placceSizeWidth = 210;
-        int placeSizeHeight = 80;
+        List<ClassArray<ITransport>> parkingStages;
 
-        public Depo(){
-            depo = new ClassArray<ITtransport>(countPlaces, null);
-        }
-        public int PutCarInParking(ITtransport train) {
-            return depo + train;
-        }
-        public ITtransport GetCarInParking(int statement) {
-            return depo - statement;
-        }
 
-        public void Draw(Graphics g, int width, int height) {
-            DrawMarking(g);
-            for (int i = 0; i < countPlaces; i++) {
-                var train = depo.getObject(i);
-                if (train != null) {
-                    train.setPosition(5 + i / 5 * placceSizeWidth + 5, i % 5 * placeSizeHeight + 30);
-                    train.drawCar(g);
-                }
+        int countPlaces = 5;
+
+        int placeSizeWidth = 300;
+
+        int placeSizeHeight = 100;
+
+        int currentLevel;
+
+        public int getCurrentLevel
+        {
+            get
+            {
+                return currentLevel;
             }
         }
-        private void DrawMarking(Graphics g)
+
+        public Depo(int countStages)
         {
-            Pen pen = new Pen(Color.Black, 3);
-            g.DrawRectangle(pen, 0, 0, (countPlaces / 5) * placceSizeWidth, 480);
+            parkingStages = new List<ClassArray<ITransport>>();
+            
+            for(int i = 2; i < countStages+2; i++)
+            {
+                ClassArray<ITransport> classarr = new ClassArray<ITransport>(i, null);
+                parkingStages.Add(classarr);
+            } 
+            
+
+        }
+
+        public void LevelUp()
+        {
+            if (currentLevel + 1 < parkingStages.Count)
+            {
+                currentLevel++;
+            }
+        }
+
+        public void LevelDown()
+        {
+            if (currentLevel > 0)
+            {
+                currentLevel--;
+            }
+        }
+
+
+        public int PutLocoInDepo(ITransport locomotive)
+        {
+            return parkingStages[currentLevel]+locomotive;
+        }
+
+        public ITransport GetLocoInDepo(int report)
+        {
+            return parkingStages[currentLevel]-report;
+        }
+
+
+        public void Draw(Graphics g, int width, int height)
+        {
+            DrawMarking(g);
             for (int i = 0; i < countPlaces; i++)
             {
-                for (int j = 0; j < 6; ++j)
+                var locomotive = parkingStages[currentLevel][i];
+                if (locomotive != null)
                 {
-                    g.DrawLine(pen, i * placceSizeWidth, j * placeSizeHeight, i * placceSizeWidth + 110, j * placeSizeHeight);
+                    locomotive.setPosition(5 + i / 5 * placeSizeWidth + 5, i % 5 * placeSizeHeight + 45);
+                    locomotive.drawLocomotive(g);
                 }
-                g.DrawLine(pen, i * placceSizeWidth, 0, i * placceSizeWidth, 400);
+
             }
+        }
+
+        public void DrawMarking(Graphics g)
+        {
+            Pen pen = new Pen(Color.Black, 3);
+
+            g.DrawString("L" + (currentLevel + 1), new Font("Arial", 30), new SolidBrush(Color.Blue),(countPlaces/3)*placeSizeWidth-70,420);
+            g.DrawRectangle(pen, 0, 0, countPlaces / 5 * placeSizeWidth, 480);
+            for(int i = 0; i < countPlaces / 5; i++)
+            {
+                for(int j = 0; j < 6; ++j)
+                {
+                    g.DrawLine(pen,i*placeSizeWidth,j*placeSizeHeight,i*placeSizeWidth+110,j*placeSizeHeight);
+
+                }
+                g.DrawLine(pen, i * placeSizeWidth, 0, i * placeSizeWidth, 400);
+            }
+
+
         }
     }
 }
