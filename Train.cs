@@ -104,14 +104,12 @@ namespace Lab2
             Brush brushB = new SolidBrush(Color.Blue);
             Brush brushRB = new SolidBrush(Color.Gray);
 
-            
             g.FillEllipse(brushRB, startPosX + 10, startPosY + 30, 20, 20);
             g.FillEllipse(brushRB, startPosX + 75, startPosY + 30, 20, 20);
 
 
             Brush LokoBrush = new SolidBrush(ColorBody);
             g.FillRectangle(LokoBrush, startPosX, startPosY, 100, 30);
-
 
             g.DrawRectangle(penB, startPosX + 85, startPosY + 5, 20, 20);
             g.DrawRectangle(penB, startPosX + 65, startPosY + 5, 10, 20);
