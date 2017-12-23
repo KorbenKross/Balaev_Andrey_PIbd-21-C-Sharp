@@ -60,6 +60,6 @@ namespace WindowsFormsApplication9
             base.drawBaseLocomotive(g);          
 
         }
-       
+
     }
 }
