@@ -80,6 +80,10 @@ namespace WindowsFormsApplication9
         {
             dopColor = color;
         }
+        public override string getInfo()
+        {
+            return MaxSpeed + ";" + MaxCountPassengers + ";" + Weight + ";" + ColorBody.Name + ";" + anthen + ";" + roof + ";" + lightEngine + ";" + dopColor.Name;
+        }
         
     }
 }
