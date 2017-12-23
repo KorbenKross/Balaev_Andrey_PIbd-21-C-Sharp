@@ -13,6 +13,7 @@ namespace Lab2
     public partial class FormDepocs : Form
     {
         Depo depo;
+        Form1 form;
         public FormDepocs()
         {
             InitializeComponent();
