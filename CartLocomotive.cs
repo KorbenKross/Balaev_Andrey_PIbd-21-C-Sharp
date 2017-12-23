@@ -60,12 +60,5 @@ namespace WindowsFormsApplication9
             base.drawBaseLocomotive(g);          
 
         }
-
-        public void setDopColor(Color color)
-        {
-            dopColor = color;
-        }
-
-
     }
 }
