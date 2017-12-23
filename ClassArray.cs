@@ -48,7 +48,9 @@ namespace Lab2
                 p.places.Remove(index);
                 return locomotive;
             }
-            throw new ParkingIndexOutOfRangeException();
+        throw new ParkingIndexOutOfRangeException();
+
+            return p.defaultValue;
         }
 
         private bool CheckFreePlace(int index)
