@@ -5,7 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Lab2
+namespace WindowsFormsApplication9
+{
 {
     public class CartLocomotive : Locomotive
     {
@@ -75,15 +76,10 @@ namespace Lab2
             base.drawBaseLocomotive(g);          
 
         }
-
         public void setDopColor(Color color)
         {
             dopColor = color;
         }
-
-        public override string getInfo()
-        {
-            return MaxSpeed + ";" + MaxCountPassengers + ";" + Weight + ";" + ColorBody.Name + ";" + anthen + ";" + roof + ";" + lightEngine + ";" + dopColor.Name;
-        }
+        
     }
 }
