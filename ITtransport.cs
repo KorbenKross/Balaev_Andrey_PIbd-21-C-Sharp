@@ -5,18 +5,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WindowsFormsApplication9
+namespace Lab2
 {
-	interface ITtransport
-	{
-		void moveCar(Graphics g);
+    public interface ITransport
+    {
+        void moveLocomotive(Graphics g);
 
-		void drawCar(Graphics g);
+        void drawLocomotive(Graphics g);
 
-		void setPosition(int x, int y);
+        void setPosition(int x , int y);
 
-		void loadPassenger(int count);
+        void loadPassengers(int count);   
 
-		int getPassenger();
-	}
+        int getPassenger();
+
+        
+    }
 }
